@@ -46,7 +46,7 @@ export default function CommunityPage() {
               </div>
               <Button
                 className="w-full bg-blue-500 hover:bg-blue-600 text-white"
-                onClick={() => window.open("https://t.me/maoai", "_blank")}
+                onClick={() => window.open("https://t.me/maoaifun", "_blank")}
               >
                 Join Telegram
               </Button>
@@ -81,7 +81,7 @@ export default function CommunityPage() {
               <Button
                 variant="outline"
                 className="w-full bg-black hover:bg-gray-900 text-white border-gray-700 dark:bg-white dark:text-black dark:hover:bg-gray-100"
-                onClick={() => window.open("https://twitter.com/maoai", "_blank")}
+                onClick={() => window.open("https://x.com/Maoaifun", "_blank")}
               >
                 Follow on X
               </Button>
@@ -96,14 +96,14 @@ export default function CommunityPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3"
-              onClick={() => window.open("https://t.me/maoai", "_blank")}
+              onClick={() => window.open("https://t.me/maoaifun", "_blank")}
             >
               Join Telegram Now
             </Button>
             <Button
               variant="outline"
               className="bg-transparent border-border text-foreground hover:bg-accent px-8 py-3"
-              onClick={() => window.open("https://twitter.com/maoai", "_blank")}
+              onClick={() => window.open("https://x.com/Maoaifun", "_blank")}
             >
               Follow on X
             </Button>
