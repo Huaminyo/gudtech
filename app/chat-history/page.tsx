@@ -21,25 +21,25 @@ export default function ChatHistoryPage() {
     const mockSessions: ChatSession[] = [
       {
         id: "1",
-        title: "Bitcoin Price Analysis with Web3Mao",
+        title: "Bitcoin Price Analysis with Mao.Ai",
         timestamp: new Date(Date.now() - 1000 * 60 * 30), // 30 minutes ago
         messageCount: 8,
         lastMessage:
-          "Based on current market trends, Bitcoin is showing bullish signals according to Web3Mao analysis...",
+          "Based on current market trends, Bitcoin is showing bullish signals according to Mao.Ai analysis...",
       },
       {
         id: "2",
         title: "DeFi Yield Farming Strategies",
         timestamp: new Date(Date.now() - 1000 * 60 * 60 * 2), // 2 hours ago
         messageCount: 12,
-        lastMessage: "Web3Mao recommends these yield farming opportunities right now...",
+        lastMessage: "Mao.Ai recommends these yield farming opportunities right now...",
       },
       {
         id: "3",
         title: "Altcoin Market Overview",
         timestamp: new Date(Date.now() - 1000 * 60 * 60 * 24), // 1 day ago
         messageCount: 6,
-        lastMessage: "Several altcoins are showing strong momentum according to Web3Mao's analysis...",
+        lastMessage: "Several altcoins are showing strong momentum according to Mao.Ai's analysis...",
       },
     ]
     setSessions(mockSessions)
@@ -64,7 +64,7 @@ export default function ChatHistoryPage() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-3xl font-light text-foreground mb-2">Chat History</h1>
-            <p className="text-muted-foreground">Your previous conversations with Web3Mao AI</p>
+            <p className="text-muted-foreground">Your previous conversations with Mao.Ai</p>
           </div>
           <Button className="bg-blue-600 hover:bg-blue-700">
             <MessageCircle className="w-4 h-4 mr-2" />
@@ -78,9 +78,9 @@ export default function ChatHistoryPage() {
               <MessageCircle className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
               <h3 className="text-xl text-foreground mb-2">No chat history yet</h3>
               <p className="text-muted-foreground mb-6">
-                Start a conversation with Web3Mao to see your chat history here
+                Start a conversation with Mao.Ai to see your chat history here
               </p>
-              <Button className="bg-blue-600 hover:bg-blue-700">Start Chatting with Web3Mao</Button>
+              <Button className="bg-blue-600 hover:bg-blue-700">Start Chatting with Mao.Ai</Button>
             </CardContent>
           </Card>
         ) : (

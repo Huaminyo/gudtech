@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
     const cryptoData = await getCryptoData()
 
     // Create context with crypto data
-    let systemPrompt = `You are Web3Mao AI, a helpful crypto market analyst and portfolio advisor. You provide insights about cryptocurrency trends, market analysis, trading information, and portfolio management advice. Keep responses concise and informative.`
+    let systemPrompt = `You are Mao.Ai, a helpful crypto market analyst and portfolio advisor. You provide insights about cryptocurrency trends, market analysis, trading information, and portfolio management advice. Keep responses concise and informative.`
 
     if (cryptoData) {
       systemPrompt += `
@@ -171,7 +171,7 @@ User question: ${message}`,
     return NextResponse.json(
       {
         error: "Failed to get AI response",
-        response: "Sorry, Web3Mao is having trouble connecting right now. Please try again in a moment.",
+        response: "Sorry, Mao.Ai is having trouble connecting right now. Please try again in a moment.",
         success: false,
       },
       { status: 500 },

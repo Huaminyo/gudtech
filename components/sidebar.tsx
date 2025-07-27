@@ -30,8 +30,8 @@ export function Sidebar({ onClose }: SidebarProps) {
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-border">
         <div className="flex items-center gap-2">
-          <img src="/images/web3mao-mascot.png" alt="Web3Mao" className="w-8 h-8 rounded-full" />
-          <span className="font-semibold text-lg text-foreground">Web3Mao</span>
+          <img src="/images/web3mao-mascot.png" alt="Mao.Ai" className="w-8 h-8 rounded-full" />
+          <span className="font-semibold text-lg text-foreground">Mao.Ai</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="hidden lg:block">

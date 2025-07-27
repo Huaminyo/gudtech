@@ -16,8 +16,8 @@ export function MobileHeader({ onMenuClick }: MobileHeaderProps) {
           <Menu className="w-5 h-5" />
         </Button>
         <div className="flex items-center gap-2">
-          <img src="/images/web3mao-mascot.png" alt="Web3Mao" className="w-6 h-6 rounded-full" />
-          <span className="font-semibold text-foreground">Web3Mao</span>
+          <img src="/images/web3mao-mascot.png" alt="Mao.Ai" className="w-6 h-6 rounded-full" />
+          <span className="font-semibold text-foreground">Mao.Ai</span>
         </div>
       </div>
       <div className="flex items-center gap-2">

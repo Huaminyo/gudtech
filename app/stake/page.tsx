@@ -27,7 +27,7 @@ export default function StakePage() {
                 <div className="text-center py-12 bg-muted rounded-lg border-2 border-dashed border-border">
                   <h3 className="text-2xl font-semibold text-foreground mb-2">Coming Soon</h3>
                   <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-                    Web3Mao staking rewards are currently in development. Stay tuned for the launch of our revolutionary
+                    Mao.Ai staking rewards are currently in development. Stay tuned for the launch of our revolutionary
                     staking platform!
                   </p>
                   <Badge variant="secondary" className="bg-muted text-foreground px-4 py-2">
@@ -47,7 +47,7 @@ export default function StakePage() {
                   </div>
                   <div className="text-center p-4 bg-muted/50 rounded-lg">
                     <h4 className="text-foreground font-medium mb-1">Governance Rights</h4>
-                    <p className="text-sm text-muted-foreground">Vote on Web3Mao ecosystem decisions</p>
+                    <p className="text-sm text-muted-foreground">Vote on Mao.Ai ecosystem decisions</p>
                   </div>
                   <div className="text-center p-4 bg-muted/50 rounded-lg">
                     <h4 className="text-foreground font-medium mb-1">Exclusive Access</h4>

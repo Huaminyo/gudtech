@@ -8,7 +8,7 @@ const roadmapItems = [
     id: "01",
     title: "AI-Powered Crypto Terminal",
     description:
-      "Crypto moves fast, don't waste time doomscrolling for insights. Web3Mao cuts through the noise, delivering real-time market intelligence with advanced AI capabilities.",
+      "Crypto moves fast, don't waste time doomscrolling for insights. Mao.Ai cuts through the noise, delivering real-time market intelligence with advanced AI capabilities.",
     status: "completed",
   },
   {
@@ -22,7 +22,7 @@ const roadmapItems = [
     id: "03",
     title: "Your Wish is My Command",
     description:
-      "Integrating with DeFi platforms and liquidity hubs. Trade tokens and execute DeFi strategies like yield farming and staking with single command on Web3Mao terminal.",
+      "Integrating with DeFi platforms and liquidity hubs. Trade tokens and execute DeFi strategies like yield farming and staking with single command on Mao.Ai terminal.",
     status: "planned",
   },
 ]
@@ -33,7 +33,7 @@ export default function RoadmapPage() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-light text-foreground mb-4">Web3Mao is getting better, one query at a time.</h1>
+          <h1 className="text-4xl font-light text-foreground mb-4">Mao.Ai is getting better, one query at a time.</h1>
         </div>
 
         {/* Roadmap Cards */}

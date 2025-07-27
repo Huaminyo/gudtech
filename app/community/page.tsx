@@ -10,9 +10,9 @@ export default function CommunityPage() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-3xl lg:text-4xl font-light text-foreground mb-4">Join the Web3Mao Community</h1>
+          <h1 className="text-3xl lg:text-4xl font-light text-foreground mb-4">Join the Mao.Ai Community</h1>
           <p className="text-muted-foreground text-sm lg:text-base max-w-2xl mx-auto">
-            Connect with fellow crypto enthusiasts, get the latest updates, and be part of the Web3Mao revolution
+            Connect with fellow crypto enthusiasts, get the latest updates, and be part of the Mao.Ai revolution
           </p>
         </div>
 
@@ -31,7 +31,7 @@ export default function CommunityPage() {
             <CardContent className="space-y-4">
               <p className="text-muted-foreground text-sm">
                 Join our most active community for real-time discussions, market updates, and direct access to the
-                Web3Mao team.
+                Mao.Ai team.
               </p>
               <div className="flex flex-wrap gap-2">
                 <Badge variant="secondary" className="bg-muted text-foreground">
@@ -46,7 +46,7 @@ export default function CommunityPage() {
               </div>
               <Button
                 className="w-full bg-blue-500 hover:bg-blue-600 text-white"
-                onClick={() => window.open("https://t.me/web3mao", "_blank")}
+                onClick={() => window.open("https://t.me/maoai", "_blank")}
               >
                 Join Telegram
               </Button>
@@ -65,7 +65,7 @@ export default function CommunityPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-muted-foreground text-sm">
-                Follow us for the latest announcements, market insights, and Web3Mao ecosystem updates.
+                Follow us for the latest announcements, market insights, and Mao.Ai ecosystem updates.
               </p>
               <div className="flex flex-wrap gap-2">
                 <Badge variant="secondary" className="bg-muted text-foreground">
@@ -81,7 +81,7 @@ export default function CommunityPage() {
               <Button
                 variant="outline"
                 className="w-full bg-black hover:bg-gray-900 text-white border-gray-700 dark:bg-white dark:text-black dark:hover:bg-gray-100"
-                onClick={() => window.open("https://twitter.com/web3mao", "_blank")}
+                onClick={() => window.open("https://twitter.com/maoai", "_blank")}
               >
                 Follow on X
               </Button>
@@ -92,18 +92,18 @@ export default function CommunityPage() {
         {/* CTA Section */}
         <div className="text-center">
           <h2 className="text-2xl font-light text-foreground mb-4">Ready to Join the Revolution?</h2>
-          <p className="text-muted-foreground mb-6">Be part of the future of AI-powered crypto trading with Web3Mao</p>
+          <p className="text-muted-foreground mb-6">Be part of the future of AI-powered crypto trading with Mao.Ai</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3"
-              onClick={() => window.open("https://t.me/web3mao", "_blank")}
+              onClick={() => window.open("https://t.me/maoai", "_blank")}
             >
               Join Telegram Now
             </Button>
             <Button
               variant="outline"
               className="bg-transparent border-border text-foreground hover:bg-accent px-8 py-3"
-              onClick={() => window.open("https://twitter.com/web3mao", "_blank")}
+              onClick={() => window.open("https://twitter.com/maoai", "_blank")}
             >
               Follow on X
             </Button>

@@ -9,8 +9,8 @@ import { Footer } from "@/components/footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Web3Mao - AI-Powered Crypto Terminal",
-  description: "AI-powered crypto terminal for real-time market intelligence with Web3Mao",
+  title: "Mao.Ai - AI-Powered Crypto Terminal",
+  description: "AI-powered crypto terminal for real-time market intelligence with Mao.Ai",
   icons: {
     icon: [
       { url: "/favicon.ico" },

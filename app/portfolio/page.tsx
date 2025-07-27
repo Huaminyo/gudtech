@@ -35,7 +35,7 @@ export default function PortfolioPage() {
 
   // Load portfolio from localStorage
   useEffect(() => {
-    const savedPortfolio = localStorage.getItem("web3mao-portfolio")
+    const savedPortfolio = localStorage.getItem("mao-ai-portfolio")
     if (savedPortfolio) {
       setPortfolio(JSON.parse(savedPortfolio))
     }
@@ -45,7 +45,7 @@ export default function PortfolioPage() {
   // Save portfolio to localStorage
   useEffect(() => {
     if (!loading) {
-      localStorage.setItem("web3mao-portfolio", JSON.stringify(portfolio))
+      localStorage.setItem("mao-ai-portfolio", JSON.stringify(portfolio))
     }
   }, [portfolio, loading])
 
@@ -155,7 +155,7 @@ export default function PortfolioPage() {
           <div>
             <h1 className="text-2xl lg:text-3xl font-light text-foreground mb-2">Portfolio Tracker</h1>
             <p className="text-muted-foreground text-sm lg:text-base">
-              Track your cryptocurrency investments with Web3Mao
+              Track your cryptocurrency investments with Mao.Ai
             </p>
           </div>
           <Button onClick={() => setIsAddModalOpen(true)} className="bg-blue-600 hover:bg-blue-700 w-full lg:w-auto">
@@ -170,7 +170,7 @@ export default function PortfolioPage() {
             <CardContent className="p-8 lg:p-12 text-center">
               <h3 className="text-lg lg:text-xl text-foreground mb-2">Start Building Your Portfolio</h3>
               <p className="text-muted-foreground mb-6 text-sm lg:text-base">
-                Add your first cryptocurrency to start tracking your investments with Web3Mao
+                Add your first cryptocurrency to start tracking your investments with Mao.Ai
               </p>
               <Button
                 onClick={() => setIsAddModalOpen(true)}

@@ -45,7 +45,7 @@ export default function ChatPage() {
 
   useEffect(() => {
     // Load portfolio from localStorage
-    const savedPortfolio = localStorage.getItem("web3mao-portfolio")
+    const savedPortfolio = localStorage.getItem("mao-ai-portfolio")
     if (savedPortfolio) {
       setPortfolio(JSON.parse(savedPortfolio))
     }
@@ -206,7 +206,7 @@ export default function ChatPage() {
               {"What's happening in the crypto market today?"}
             </h1>
             <p className="text-muted-foreground text-center mb-6 lg:mb-8 max-w-xl text-sm lg:text-base px-4">
-              Get real-time crypto insights and portfolio analysis powered by Web3Mao AI
+              Get real-time crypto insights and portfolio analysis powered by Mao.Ai
             </p>
 
             {/* Trending Topics */}
@@ -244,7 +244,7 @@ export default function ChatPage() {
                     ) : (
                       <img
                         src="/images/web3mao-mascot.png"
-                        alt="Web3Mao"
+                        alt="Mao.Ai"
                         className="w-6 h-6 lg:w-8 lg:h-8 rounded-full"
                       />
                     )}
@@ -263,7 +263,7 @@ export default function ChatPage() {
             ))}
             {isLoading && (
               <div className="flex gap-2 lg:gap-3 justify-start">
-                <img src="/images/web3mao-mascot.png" alt="Web3Mao" className="w-6 h-6 lg:w-8 lg:h-8 rounded-full" />
+                <img src="/images/web3mao-mascot.png" alt="Mao.Ai" className="w-6 h-6 lg:w-8 lg:h-8 rounded-full" />
                 <Card className="bg-card border-none">
                   <CardContent className="p-2 lg:p-3">
                     <div className="flex gap-1">
@@ -294,10 +294,10 @@ export default function ChatPage() {
               onChange={(e) => setMessage(e.target.value)}
               placeholder={
                 isLoading
-                  ? "Web3Mao is analyzing market data..."
+                  ? "Mao.Ai is analyzing market data..."
                   : portfolio.length > 0
-                    ? "Ask Web3Mao about crypto trends, prices, or your portfolio..."
-                    : "Ask Web3Mao about crypto trends, prices, or market analysis..."
+                    ? "Ask Mao.Ai about crypto trends, prices, or your portfolio..."
+                    : "Ask Mao.Ai about crypto trends, prices, or market analysis..."
               }
               className="w-full bg-card border-border text-foreground placeholder-muted-foreground pr-12 py-4 lg:py-6 text-sm lg:text-lg rounded-2xl"
               disabled={isLoading}
