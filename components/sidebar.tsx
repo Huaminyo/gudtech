@@ -47,7 +47,12 @@ export function Sidebar({ onClose }: SidebarProps) {
 
       {/* Buy $MAO Button */}
       <div className="p-4">
-        <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">Buy $MAO</Button>
+        <Button
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+          onClick={() => window.open("https://ape.store/base/0x150cb4f0950cb7f0b2af89d5bfca9e3ef8969357", "_blank")}
+        >
+          Buy $MAO
+        </Button>
       </div>
 
       {/* Navigation */}
