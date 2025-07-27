@@ -110,11 +110,7 @@ export function GlobalCryptoStats() {
           </div>
           <div>
             <p className="text-gray-400 text-sm">24h Change</p>
-            <div
-              className={`flex items-center font-semibold text-lg ${
-                globalData.market_cap_change_percentage_24h_usd >= 0 ? "text-green-500" : "text-red-500"
-              }`}
-            >
+            <div className="flex items-center font-semibold text-lg text-white">
               {globalData.market_cap_change_percentage_24h_usd >= 0 ? (
                 <TrendingUp className="w-4 h-4 mr-1" />
               ) : (

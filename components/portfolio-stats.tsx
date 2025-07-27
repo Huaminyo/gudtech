@@ -45,16 +45,14 @@ export function PortfolioStats({ data }: PortfolioStatsProps) {
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium text-gray-400">Total P&L</CardTitle>
           {data.totalPnL >= 0 ? (
-            <TrendingUp className="h-4 w-4 text-green-500" />
+            <TrendingUp className="h-4 w-4 text-foreground" />
           ) : (
-            <TrendingDown className="h-4 w-4 text-red-500" />
+            <TrendingDown className="h-4 w-4 text-foreground" />
           )}
         </CardHeader>
         <CardContent>
-          <div className={`text-xl lg:text-2xl font-bold ${data.totalPnL >= 0 ? "text-green-500" : "text-red-500"}`}>
-            {formatCurrency(data.totalPnL)}
-          </div>
-          <p className={`text-xs ${data.totalPnLPercentage >= 0 ? "text-green-500" : "text-red-500"}`}>
+          <div className="text-xl lg:text-2xl font-bold text-white">{formatCurrency(data.totalPnL)}</div>
+          <p className="text-xs text-foreground">
             {data.totalPnLPercentage >= 0 ? "+" : ""}
             {data.totalPnLPercentage.toFixed(2)}%
           </p>
@@ -65,7 +63,7 @@ export function PortfolioStats({ data }: PortfolioStatsProps) {
       <Card className="bg-gray-800 border-gray-700">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium text-gray-400">Holdings</CardTitle>
-          <PieChart className="h-4 w-4 text-purple-500" />
+          <PieChart className="h-4 w-4 text-foreground" />
         </CardHeader>
         <CardContent>
           <div className="text-xl lg:text-2xl font-bold text-white">{data.items.length}</div>

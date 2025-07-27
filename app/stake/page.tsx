@@ -30,10 +30,7 @@ export default function StakePage() {
                     Web3Mao staking rewards are currently in development. Stay tuned for the launch of our revolutionary
                     staking platform!
                   </p>
-                  <Badge
-                    variant="secondary"
-                    className="bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 px-4 py-2"
-                  >
+                  <Badge variant="secondary" className="bg-muted text-foreground px-4 py-2">
                     Launch Coming Q1 2025
                   </Badge>
                 </div>

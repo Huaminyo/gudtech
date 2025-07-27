@@ -153,21 +153,18 @@ export default function ChatPage() {
           </div>
           {quickStats && (
             <div className="flex items-center gap-4 text-sm">
-              <Badge variant="outline" className="bg-card border-border text-green-500">
+              <Badge variant="outline" className="bg-card border-border text-foreground">
                 BTC: ${quickStats.btc_price.toLocaleString()}
               </Badge>
-              <Badge variant="outline" className="bg-card border-border text-blue-500">
+              <Badge variant="outline" className="bg-card border-border text-foreground">
                 ETH: ${quickStats.eth_price.toLocaleString()}
               </Badge>
-              <Badge
-                variant="outline"
-                className={`bg-card border-border ${quickStats.market_cap_change >= 0 ? "text-green-500" : "text-red-500"}`}
-              >
+              <Badge variant="outline" className="bg-card border-border text-foreground">
                 <TrendingUp className="w-3 h-3 mr-1" />
                 {quickStats.market_cap_change.toFixed(2)}%
               </Badge>
               {portfolio.length > 0 && (
-                <Badge variant="outline" className="bg-card border-border text-purple-500">
+                <Badge variant="outline" className="bg-card border-border text-blue-500">
                   Portfolio: {portfolio.length} assets
                 </Badge>
               )}
@@ -180,21 +177,18 @@ export default function ChatPage() {
       <div className="lg:hidden p-3 border-b border-border bg-card">
         {quickStats && (
           <div className="flex items-center gap-2 text-xs overflow-x-auto">
-            <Badge variant="outline" className="bg-muted border-border text-green-500 whitespace-nowrap">
+            <Badge variant="outline" className="bg-muted border-border text-foreground whitespace-nowrap">
               BTC: ${quickStats.btc_price.toLocaleString()}
             </Badge>
-            <Badge variant="outline" className="bg-muted border-border text-blue-500 whitespace-nowrap">
+            <Badge variant="outline" className="bg-muted border-border text-foreground whitespace-nowrap">
               ETH: ${quickStats.eth_price.toLocaleString()}
             </Badge>
-            <Badge
-              variant="outline"
-              className={`bg-muted border-border whitespace-nowrap ${quickStats.market_cap_change >= 0 ? "text-green-500" : "text-red-500"}`}
-            >
+            <Badge variant="outline" className="bg-muted border-border text-foreground whitespace-nowrap">
               <TrendingUp className="w-3 h-3 mr-1" />
               {quickStats.market_cap_change.toFixed(2)}%
             </Badge>
             {portfolio.length > 0 && (
-              <Badge variant="outline" className="bg-muted border-border text-purple-500 whitespace-nowrap">
+              <Badge variant="outline" className="bg-muted border-border text-blue-500 whitespace-nowrap">
                 Portfolio: {portfolio.length}
               </Badge>
             )}

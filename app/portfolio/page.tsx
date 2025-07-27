@@ -224,11 +224,7 @@ export default function PortfolioPage() {
                             </div>
                             <div className="text-right">
                               <p className="text-foreground font-medium">{formatCurrency(currentValue)}</p>
-                              <div
-                                className={`flex items-center justify-end text-xs ${
-                                  pnl >= 0 ? "text-green-500" : "text-red-500"
-                                }`}
-                              >
+                              <div className="flex items-center justify-end text-xs text-foreground">
                                 {pnl >= 0 ? (
                                   <TrendingUp className="w-3 h-3 mr-1" />
                                 ) : (
@@ -254,9 +250,7 @@ export default function PortfolioPage() {
                             </div>
                             <div>
                               <p className="text-muted-foreground">P&L</p>
-                              <p className={`font-medium ${pnl >= 0 ? "text-green-500" : "text-red-500"}`}>
-                                {formatCurrency(pnl)}
-                              </p>
+                              <p className="font-medium text-foreground">{formatCurrency(pnl)}</p>
                             </div>
                           </div>
                           <Button
@@ -320,11 +314,7 @@ export default function PortfolioPage() {
                             <td className="text-right py-4">
                               <div>
                                 <p className="text-foreground">{formatCurrency(currentPrice)}</p>
-                                <div
-                                  className={`flex items-center justify-end text-xs ${
-                                    priceChange >= 0 ? "text-green-500" : "text-red-500"
-                                  }`}
-                                >
+                                <div className="flex items-center justify-end text-xs text-foreground">
                                   {priceChange >= 0 ? (
                                     <TrendingUp className="w-3 h-3 mr-1" />
                                   ) : (
@@ -339,10 +329,8 @@ export default function PortfolioPage() {
                             </td>
                             <td className="text-right py-4">
                               <div>
-                                <p className={`font-medium ${pnl >= 0 ? "text-green-500" : "text-red-500"}`}>
-                                  {formatCurrency(pnl)}
-                                </p>
-                                <p className={`text-xs ${pnlPercentage >= 0 ? "text-green-500" : "text-red-500"}`}>
+                                <p className="font-medium text-foreground">{formatCurrency(pnl)}</p>
+                                <p className="text-xs text-foreground">
                                   {pnlPercentage >= 0 ? "+" : ""}
                                   {pnlPercentage.toFixed(2)}%
                                 </p>

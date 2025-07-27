@@ -110,11 +110,7 @@ export function CryptoPriceTicker() {
               </div>
               <div className="text-right">
                 <p className="font-semibold text-foreground text-xs lg:text-sm">{formatPrice(crypto.current_price)}</p>
-                <div
-                  className={`flex items-center justify-end text-xs ${
-                    crypto.price_change_percentage_24h >= 0 ? "text-green-500" : "text-red-500"
-                  }`}
-                >
+                <div className="flex items-center justify-end text-xs text-foreground">
                   {crypto.price_change_percentage_24h >= 0 ? (
                     <TrendingUp className="w-3 h-3 mr-1" />
                   ) : (

@@ -34,19 +34,13 @@ export default function CommunityPage() {
                 Web3Mao team.
               </p>
               <div className="flex flex-wrap gap-2">
-                <Badge variant="secondary" className="bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300">
+                <Badge variant="secondary" className="bg-muted text-foreground">
                   Real-time Updates
                 </Badge>
-                <Badge
-                  variant="secondary"
-                  className="bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300"
-                >
+                <Badge variant="secondary" className="bg-muted text-foreground">
                   Community Support
                 </Badge>
-                <Badge
-                  variant="secondary"
-                  className="bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300"
-                >
+                <Badge variant="secondary" className="bg-muted text-foreground">
                   Alpha Calls
                 </Badge>
               </div>
@@ -74,16 +68,13 @@ export default function CommunityPage() {
                 Follow us for the latest announcements, market insights, and Web3Mao ecosystem updates.
               </p>
               <div className="flex flex-wrap gap-2">
-                <Badge variant="secondary" className="bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300">
+                <Badge variant="secondary" className="bg-muted text-foreground">
                   News & Updates
                 </Badge>
-                <Badge
-                  variant="secondary"
-                  className="bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300"
-                >
+                <Badge variant="secondary" className="bg-muted text-foreground">
                   Market Analysis
                 </Badge>
-                <Badge variant="secondary" className="bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300">
+                <Badge variant="secondary" className="bg-muted text-foreground">
                   Announcements
                 </Badge>
               </div>
