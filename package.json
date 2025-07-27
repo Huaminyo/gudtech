@@ -14,9 +14,6 @@
     "@radix-ui/react-label": "latest",
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
-    "@tanstack/react-query": "latest",
-    "@wagmi/connectors": "^4.1.14",
-    "@wagmi/core": "^2.6.5",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.454.0",
@@ -25,9 +22,7 @@
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.5.5",
-    "tailwindcss-animate": "^1.0.7",
-    "viem": "^2.7.13",
-    "wagmi": "latest"
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^22",
