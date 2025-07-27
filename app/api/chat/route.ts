@@ -38,13 +38,13 @@ async function getCryptoData() {
 
 export async function POST(request: NextRequest) {
   try {
-    const { message, history } = await request.json()
+    const { message, history, portfolio } = await request.json()
 
     // Get real-time crypto data
     const cryptoData = await getCryptoData()
 
     // Create context with crypto data
-    let systemPrompt = `You are Gud Tech AI, a helpful crypto market analyst. You provide insights about cryptocurrency trends, market analysis, and trading information. Keep responses concise and informative.`
+    let systemPrompt = `You are Gud Tech AI, a helpful crypto market analyst and portfolio advisor. You provide insights about cryptocurrency trends, market analysis, trading information, and portfolio management advice. Keep responses concise and informative.`
 
     if (cryptoData) {
       systemPrompt += `
@@ -70,10 +70,32 @@ GLOBAL MARKET:
 - Total Market Cap: $${(cryptoData.global.total_market_cap?.usd / 1e12)?.toFixed(2)}T
 - 24h Volume: $${(cryptoData.global.total_volume?.usd / 1e9)?.toFixed(2)}B
 - BTC Dominance: ${cryptoData.global.market_cap_percentage?.btc?.toFixed(1)}%
-- Market Cap Change 24h: ${cryptoData.global.market_cap_change_percentage_24h_usd?.toFixed(2)}%
-
-Use this real-time data to provide accurate and current market insights.`
+- Market Cap Change 24h: ${cryptoData.global.market_cap_change_percentage_24h_usd?.toFixed(2)}%`
     }
+
+    // Add portfolio context if provided
+    if (portfolio && portfolio.length > 0) {
+      systemPrompt += `
+
+USER'S PORTFOLIO:
+${portfolio
+  .map((item: any) => {
+    const currentPrice = cryptoData?.prices[item.coinId]?.usd || 0
+    const currentValue = item.quantity * currentPrice
+    const totalCost = item.quantity * item.averagePrice
+    const pnl = currentValue - totalCost
+    const pnlPercentage = totalCost > 0 ? (pnl / totalCost) * 100 : 0
+
+    return `- ${item.name} (${item.symbol.toUpperCase()}): ${item.quantity} coins, Avg Price: $${item.averagePrice}, Current Value: $${currentValue.toFixed(2)}, P&L: ${pnl >= 0 ? "+" : ""}$${pnl.toFixed(2)} (${pnlPercentage >= 0 ? "+" : ""}${pnlPercentage.toFixed(2)}%)`
+  })
+  .join("\n")}
+
+When discussing portfolio, provide specific insights about their holdings, performance, and recommendations.`
+    }
+
+    systemPrompt += `
+
+Use this real-time data to provide accurate and current market insights. If asked about portfolio, provide specific analysis of their holdings.`
 
     // Prepare messages for the API
     const messages: Message[] = [

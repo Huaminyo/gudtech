@@ -19,6 +19,8 @@ const trendingTopics = [
   "market sentiment",
   "price prediction",
   "trading signals",
+  "portfolio analysis",
+  "investment advice",
 ]
 
 interface Message {
@@ -39,6 +41,15 @@ export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [quickStats, setQuickStats] = useState<QuickStats | null>(null)
+  const [portfolio, setPortfolio] = useState<any[]>([])
+
+  useEffect(() => {
+    // Load portfolio from localStorage
+    const savedPortfolio = localStorage.getItem("gud-tech-portfolio")
+    if (savedPortfolio) {
+      setPortfolio(JSON.parse(savedPortfolio))
+    }
+  }, [])
 
   useEffect(() => {
     // Fetch quick stats for the header - reduced frequency
@@ -93,6 +104,7 @@ export default function ChatPage() {
         body: JSON.stringify({
           message: message,
           history: messages,
+          portfolio: portfolio, // Send portfolio data to AI
         }),
       })
 
@@ -130,8 +142,8 @@ export default function ChatPage() {
 
   return (
     <div className="flex flex-col h-screen bg-gray-900">
-      {/* Header */}
-      <div className="flex items-center justify-between p-4 border-b border-gray-700">
+      {/* Header - Hidden on mobile (handled by MobileHeader) */}
+      <div className="hidden lg:flex items-center justify-between p-4 border-b border-gray-700">
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
             <span className="text-gray-400">default</span>
@@ -154,45 +166,76 @@ export default function ChatPage() {
                 <TrendingUp className="w-3 h-3 mr-1" />
                 {quickStats.market_cap_change.toFixed(2)}%
               </Badge>
+              {portfolio.length > 0 && (
+                <Badge variant="outline" className="bg-gray-800 border-gray-600 text-purple-400">
+                  Portfolio: {portfolio.length} assets
+                </Badge>
+              )}
             </div>
           )}
         </div>
         <Button className="bg-green-600 hover:bg-green-700">Connect Wallet</Button>
       </div>
 
+      {/* Mobile Stats Bar */}
+      <div className="lg:hidden p-3 border-b border-gray-700 bg-gray-800">
+        {quickStats && (
+          <div className="flex items-center gap-2 text-xs overflow-x-auto">
+            <Badge variant="outline" className="bg-gray-700 border-gray-600 text-green-400 whitespace-nowrap">
+              BTC: ${quickStats.btc_price.toLocaleString()}
+            </Badge>
+            <Badge variant="outline" className="bg-gray-700 border-gray-600 text-blue-400 whitespace-nowrap">
+              ETH: ${quickStats.eth_price.toLocaleString()}
+            </Badge>
+            <Badge
+              variant="outline"
+              className={`bg-gray-700 border-gray-600 whitespace-nowrap ${quickStats.market_cap_change >= 0 ? "text-green-400" : "text-red-400"}`}
+            >
+              <TrendingUp className="w-3 h-3 mr-1" />
+              {quickStats.market_cap_change.toFixed(2)}%
+            </Badge>
+            {portfolio.length > 0 && (
+              <Badge variant="outline" className="bg-gray-700 border-gray-600 text-purple-400 whitespace-nowrap">
+                Portfolio: {portfolio.length}
+              </Badge>
+            )}
+          </div>
+        )}
+      </div>
+
       {/* Chat Messages or Welcome Screen */}
       <div className="flex-1 overflow-y-auto">
         {messages.length === 0 ? (
           /* Welcome Screen */
-          <div className="flex flex-col items-center justify-center h-full p-8">
+          <div className="flex flex-col items-center justify-center h-full p-4 lg:p-8">
             {/* Mascot */}
-            <div className="mb-8">
-              <div className="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center mb-4">
-                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                  <span className="text-2xl">🐱</span>
+            <div className="mb-6 lg:mb-8">
+              <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gray-700 rounded-full flex items-center justify-center mb-4">
+                <div className="w-8 h-8 lg:w-12 lg:h-12 bg-white rounded-full flex items-center justify-center">
+                  <span className="text-lg lg:text-2xl">🐱</span>
                 </div>
-                <div className="w-6 h-6 bg-green-500 rounded-full absolute translate-x-6 -translate-y-2 flex items-center justify-center">
+                <div className="w-4 h-4 lg:w-6 lg:h-6 bg-green-500 rounded-full absolute translate-x-4 lg:translate-x-6 -translate-y-1 lg:-translate-y-2 flex items-center justify-center">
                   <span className="text-xs">✓</span>
                 </div>
               </div>
             </div>
 
             {/* Main Question */}
-            <h1 className="text-3xl font-light text-center mb-4 max-w-2xl">
+            <h1 className="text-xl lg:text-3xl font-light text-center mb-3 lg:mb-4 max-w-2xl px-4">
               {"What's happening in the crypto market today?"}
             </h1>
-            <p className="text-gray-400 text-center mb-8 max-w-xl">
-              Get real-time crypto insights powered by live market data from CoinGecko
+            <p className="text-gray-400 text-center mb-6 lg:mb-8 max-w-xl text-sm lg:text-base px-4">
+              Get real-time crypto insights and portfolio analysis powered by live market data
             </p>
 
             {/* Trending Topics */}
-            <div className="flex flex-wrap gap-2 justify-center max-w-4xl mb-8">
+            <div className="flex flex-wrap gap-2 justify-center max-w-4xl mb-6 lg:mb-8 px-4">
               {trendingTopics.map((topic) => (
                 <Button
                   key={topic}
                   variant="outline"
                   size="sm"
-                  className="bg-gray-800 border-gray-600 text-gray-300 hover:bg-gray-700 rounded-full"
+                  className="bg-gray-800 border-gray-600 text-gray-300 hover:bg-gray-700 rounded-full text-xs lg:text-sm"
                   onClick={() => handleTopicClick(topic)}
                 >
                   {topic}
@@ -205,34 +248,39 @@ export default function ChatPage() {
           </div>
         ) : (
           /* Chat Messages */
-          <div className="p-4 space-y-4">
+          <div className="p-3 lg:p-4 space-y-3 lg:space-y-4">
             {messages.map((msg) => (
-              <div key={msg.id} className={`flex gap-3 ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
-                <div className={`flex gap-3 max-w-3xl ${msg.role === "user" ? "flex-row-reverse" : "flex-row"}`}>
-                  <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
+              <div
+                key={msg.id}
+                className={`flex gap-2 lg:gap-3 ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+              >
+                <div
+                  className={`flex gap-2 lg:gap-3 max-w-[85%] lg:max-w-3xl ${msg.role === "user" ? "flex-row-reverse" : "flex-row"}`}
+                >
+                  <div className="w-6 h-6 lg:w-8 lg:h-8 rounded-full flex items-center justify-center flex-shrink-0">
                     {msg.role === "user" ? (
-                      <User className="w-6 h-6 text-gray-400" />
+                      <User className="w-4 h-4 lg:w-6 lg:h-6 text-gray-400" />
                     ) : (
-                      <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
-                        <Bot className="w-5 h-5 text-white" />
+                      <div className="w-6 h-6 lg:w-8 lg:h-8 bg-green-600 rounded-full flex items-center justify-center">
+                        <Bot className="w-3 h-3 lg:w-5 lg:h-5 text-white" />
                       </div>
                     )}
                   </div>
                   <Card className={`${msg.role === "user" ? "bg-green-600" : "bg-gray-800"} border-none`}>
-                    <CardContent className="p-3">
-                      <p className="text-white text-sm whitespace-pre-wrap">{msg.content}</p>
+                    <CardContent className="p-2 lg:p-3">
+                      <p className="text-white text-xs lg:text-sm whitespace-pre-wrap">{msg.content}</p>
                     </CardContent>
                   </Card>
                 </div>
               </div>
             ))}
             {isLoading && (
-              <div className="flex gap-3 justify-start">
-                <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
-                  <Bot className="w-5 h-5 text-white" />
+              <div className="flex gap-2 lg:gap-3 justify-start">
+                <div className="w-6 h-6 lg:w-8 lg:h-8 bg-green-600 rounded-full flex items-center justify-center">
+                  <Bot className="w-3 h-3 lg:w-5 lg:h-5 text-white" />
                 </div>
                 <Card className="bg-gray-800 border-none">
-                  <CardContent className="p-3">
+                  <CardContent className="p-2 lg:p-3">
                     <div className="flex gap-1">
                       <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
                       <div
@@ -253,7 +301,7 @@ export default function ChatPage() {
       </div>
 
       {/* Input Area */}
-      <div className="p-4 border-t border-gray-700">
+      <div className="p-3 lg:p-4 border-t border-gray-700">
         <form onSubmit={handleSubmit} className="max-w-4xl mx-auto">
           <div className="relative">
             <Input
@@ -262,9 +310,11 @@ export default function ChatPage() {
               placeholder={
                 isLoading
                   ? "AI is analyzing market data..."
-                  : "Ask me about crypto trends, prices, or market analysis..."
+                  : portfolio.length > 0
+                    ? "Ask me about crypto trends, prices, or your portfolio..."
+                    : "Ask me about crypto trends, prices, or market analysis..."
               }
-              className="w-full bg-gray-800 border-gray-600 text-white placeholder-gray-400 pr-12 py-6 text-lg rounded-2xl"
+              className="w-full bg-gray-800 border-gray-600 text-white placeholder-gray-400 pr-12 py-4 lg:py-6 text-sm lg:text-lg rounded-2xl"
               disabled={isLoading}
             />
             <Button
@@ -273,9 +323,9 @@ export default function ChatPage() {
               className="absolute right-2 top-1/2 -translate-y-1/2 bg-green-600 hover:bg-green-700 rounded-xl"
               disabled={isLoading || !message.trim()}
             >
-              <Send className="w-4 h-4" />
+              <Send className="w-3 h-3 lg:w-4 lg:h-4" />
             </Button>
-            <Lock className="absolute right-16 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+            <Lock className="absolute right-12 lg:right-16 top-1/2 -translate-y-1/2 w-4 h-4 lg:w-5 lg:h-5 text-gray-400" />
           </div>
         </form>
       </div>
