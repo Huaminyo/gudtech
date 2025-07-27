@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Globe, TrendingUp, TrendingDown } from "lucide-react"
+import { TrendingUp, TrendingDown } from "lucide-react"
 
 interface GlobalData {
   total_market_cap: { usd: number }
@@ -55,10 +55,7 @@ export function GlobalCryptoStats() {
     return (
       <Card className="bg-gray-800 border-gray-700">
         <CardHeader>
-          <CardTitle className="text-white flex items-center gap-2">
-            <Globe className="w-5 h-5 text-blue-500" />
-            Global Market Stats
-          </CardTitle>
+          <CardTitle className="text-white">Global Market Stats</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 gap-4">
@@ -87,10 +84,7 @@ export function GlobalCryptoStats() {
   return (
     <Card className="bg-gray-800 border-gray-700">
       <CardHeader>
-        <CardTitle className="text-white flex items-center gap-2">
-          <Globe className="w-5 h-5 text-blue-500" />
-          Global Market Stats
-        </CardTitle>
+        <CardTitle className="text-white">Global Market Stats</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-2 gap-4">

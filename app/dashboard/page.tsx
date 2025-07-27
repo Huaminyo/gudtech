@@ -5,7 +5,7 @@ import { TrendingCrypto } from "@/components/trending-crypto"
 import { GlobalCryptoStats } from "@/components/global-crypto-stats"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { RefreshCw, BarChart3 } from "lucide-react"
+import { RefreshCw } from "lucide-react"
 
 export default function DashboardPage() {
   const handleRefresh = () => {
@@ -35,10 +35,7 @@ export default function DashboardPage() {
 
         {/* Price Ticker */}
         <div className="mb-6 lg:mb-8">
-          <h2 className="text-lg lg:text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-            <BarChart3 className="w-5 h-5 text-green-500" />
-            Top Cryptocurrencies
-          </h2>
+          <h2 className="text-lg lg:text-xl font-semibold text-foreground mb-4">Top Cryptocurrencies</h2>
           <CryptoPriceTicker />
         </div>
 
@@ -56,21 +53,18 @@ export default function DashboardPage() {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
               <div className="text-center">
-                <div className="text-2xl font-bold text-green-500 mb-2">🚀</div>
                 <h3 className="text-foreground font-semibold mb-1 text-sm lg:text-base">AI-Powered Analysis</h3>
                 <p className="text-muted-foreground text-xs lg:text-sm">
                   Get real-time market insights with Web3Mao AI chat assistant
                 </p>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-blue-500 mb-2">📊</div>
                 <h3 className="text-foreground font-semibold mb-1 text-sm lg:text-base">Live Data</h3>
                 <p className="text-muted-foreground text-xs lg:text-sm">
                   Real-time prices and market data from CoinGecko API
                 </p>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-purple-500 mb-2">⚡</div>
                 <h3 className="text-foreground font-semibold mb-1 text-sm lg:text-base">Fast Updates</h3>
                 <p className="text-muted-foreground text-xs lg:text-sm">
                   Market data updates every 30 seconds automatically

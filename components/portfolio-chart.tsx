@@ -1,7 +1,6 @@
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { PieChart } from "lucide-react"
 import type { PortfolioItem } from "@/app/portfolio/page"
 
 interface PortfolioChartProps {
@@ -54,10 +53,7 @@ export function PortfolioChart({ portfolio, prices }: PortfolioChartProps) {
   return (
     <Card className="bg-gray-800 border-gray-700">
       <CardHeader>
-        <CardTitle className="text-white flex items-center gap-2">
-          <PieChart className="w-5 h-5 text-green-500" />
-          Portfolio Allocation
-        </CardTitle>
+        <CardTitle className="text-white">Portfolio Allocation</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

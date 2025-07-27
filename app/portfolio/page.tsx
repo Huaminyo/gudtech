@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Plus, TrendingUp, TrendingDown, BarChart3 } from "lucide-react"
+import { Plus, TrendingUp, TrendingDown } from "lucide-react"
 import { AddCryptoModal } from "@/components/add-crypto-modal"
 import { PortfolioStats } from "@/components/portfolio-stats"
 import { PortfolioChart } from "@/components/portfolio-chart"
@@ -168,11 +168,6 @@ export default function PortfolioPage() {
           /* Empty State */
           <Card className="bg-card border-border">
             <CardContent className="p-8 lg:p-12 text-center">
-              <img
-                src="/images/web3mao-mascot.png"
-                alt="Web3Mao"
-                className="w-12 h-12 lg:w-16 lg:h-16 mx-auto mb-4 rounded-full"
-              />
               <h3 className="text-lg lg:text-xl text-foreground mb-2">Start Building Your Portfolio</h3>
               <p className="text-muted-foreground mb-6 text-sm lg:text-base">
                 Add your first cryptocurrency to start tracking your investments with Web3Mao
@@ -199,10 +194,7 @@ export default function PortfolioPage() {
             {/* Holdings Table */}
             <Card className="bg-card border-border">
               <CardHeader>
-                <CardTitle className="text-foreground flex items-center gap-2 text-lg lg:text-xl">
-                  <BarChart3 className="w-5 h-5 text-blue-500" />
-                  Your Holdings
-                </CardTitle>
+                <CardTitle className="text-foreground text-lg lg:text-xl">Your Holdings</CardTitle>
               </CardHeader>
               <CardContent>
                 {/* Mobile View */}

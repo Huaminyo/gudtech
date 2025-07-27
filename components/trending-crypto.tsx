@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { TrendingUp } from "lucide-react"
 
 interface TrendingCoin {
   id: string
@@ -45,10 +44,7 @@ export function TrendingCrypto() {
     return (
       <Card className="bg-gray-800 border-gray-700">
         <CardHeader>
-          <CardTitle className="text-white flex items-center gap-2">
-            <TrendingUp className="w-5 h-5 text-blue-500" />
-            Trending Crypto
-          </CardTitle>
+          <CardTitle className="text-white">Trending Crypto</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
@@ -71,10 +67,7 @@ export function TrendingCrypto() {
   return (
     <Card className="bg-gray-800 border-gray-700">
       <CardHeader>
-        <CardTitle className="text-white flex items-center gap-2">
-          <TrendingUp className="w-5 h-5 text-blue-500" />
-          Trending Crypto
-        </CardTitle>
+        <CardTitle className="text-white">Trending Crypto</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-3">

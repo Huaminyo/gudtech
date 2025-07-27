@@ -208,20 +208,6 @@ export default function ChatPage() {
         {messages.length === 0 ? (
           /* Welcome Screen */
           <div className="flex flex-col items-center justify-center h-full p-4 lg:p-8">
-            {/* Mascot */}
-            <div className="mb-6 lg:mb-8">
-              <div className="relative mb-4">
-                <img
-                  src="/images/web3mao-mascot.png"
-                  alt="Web3Mao"
-                  className="w-16 h-16 lg:w-24 lg:h-24 rounded-full"
-                />
-                <div className="w-4 h-4 lg:w-6 lg:h-6 bg-green-500 rounded-full absolute -bottom-1 -right-1 lg:bottom-0 lg:right-0 flex items-center justify-center">
-                  <span className="text-xs">✓</span>
-                </div>
-              </div>
-            </div>
-
             {/* Main Question */}
             <h1 className="text-xl lg:text-3xl font-light text-center mb-3 lg:mb-4 max-w-2xl px-4 text-foreground">
               {"What's happening in the crypto market today?"}
