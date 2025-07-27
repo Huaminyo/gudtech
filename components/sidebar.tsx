@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { MessageCircle, BarChart3, Coins, Map, HelpCircle, PieChart, X, Users } from "lucide-react"
+import { MessageCircle, BarChart3, Coins, Map, HelpCircle, PieChart, X, Users, TrendingUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -12,6 +12,7 @@ const navigation = [
   { name: "Chat History", href: "/chat-history", icon: MessageCircle },
   { name: "Dashboard", href: "/dashboard", icon: BarChart3 },
   { name: "Portfolio", href: "/portfolio", icon: PieChart },
+  { name: "Chart", href: "/chart", icon: TrendingUp },
   { name: "$MAO", href: "/stake", icon: Coins },
   { name: "Roadmap", href: "/roadmap", icon: Map },
   { name: "Community", href: "/community", icon: Users },
