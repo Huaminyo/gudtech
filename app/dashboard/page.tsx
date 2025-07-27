@@ -18,9 +18,9 @@ export default function DashboardPage() {
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-6 lg:mb-8 gap-4">
           <div>
-            <h1 className="text-2xl lg:text-3xl font-light text-foreground mb-2">Crypto Market Dashboard</h1>
+            <h1 className="text-2xl lg:text-3xl font-light text-foreground mb-2">Web3Mao Market Dashboard</h1>
             <p className="text-muted-foreground text-sm lg:text-base">
-              Real-time cryptocurrency market data powered by CoinGecko
+              Real-time cryptocurrency market data powered by Web3Mao AI
             </p>
           </div>
           <Button
@@ -59,7 +59,7 @@ export default function DashboardPage() {
                 <div className="text-2xl font-bold text-green-500 mb-2">🚀</div>
                 <h3 className="text-foreground font-semibold mb-1 text-sm lg:text-base">AI-Powered Analysis</h3>
                 <p className="text-muted-foreground text-xs lg:text-sm">
-                  Get real-time market insights with our AI chat assistant
+                  Get real-time market insights with Web3Mao AI chat assistant
                 </p>
               </div>
               <div className="text-center">

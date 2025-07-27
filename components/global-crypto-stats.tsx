@@ -56,7 +56,7 @@ export function GlobalCryptoStats() {
       <Card className="bg-gray-800 border-gray-700">
         <CardHeader>
           <CardTitle className="text-white flex items-center gap-2">
-            <Globe className="w-5 h-5 text-green-500" />
+            <Globe className="w-5 h-5 text-blue-500" />
             Global Market Stats
           </CardTitle>
         </CardHeader>
@@ -88,7 +88,7 @@ export function GlobalCryptoStats() {
     <Card className="bg-gray-800 border-gray-700">
       <CardHeader>
         <CardTitle className="text-white flex items-center gap-2">
-          <Globe className="w-5 h-5 text-green-500" />
+          <Globe className="w-5 h-5 text-blue-500" />
           Global Market Stats
         </CardTitle>
       </CardHeader>

@@ -21,24 +21,25 @@ export default function ChatHistoryPage() {
     const mockSessions: ChatSession[] = [
       {
         id: "1",
-        title: "Bitcoin Price Analysis",
+        title: "Bitcoin Price Analysis with Web3Mao",
         timestamp: new Date(Date.now() - 1000 * 60 * 30), // 30 minutes ago
         messageCount: 8,
-        lastMessage: "Based on current market trends, Bitcoin is showing bullish signals...",
+        lastMessage:
+          "Based on current market trends, Bitcoin is showing bullish signals according to Web3Mao analysis...",
       },
       {
         id: "2",
         title: "DeFi Yield Farming Strategies",
         timestamp: new Date(Date.now() - 1000 * 60 * 60 * 2), // 2 hours ago
         messageCount: 12,
-        lastMessage: "The best yield farming opportunities right now are...",
+        lastMessage: "Web3Mao recommends these yield farming opportunities right now...",
       },
       {
         id: "3",
         title: "Altcoin Market Overview",
         timestamp: new Date(Date.now() - 1000 * 60 * 60 * 24), // 1 day ago
         messageCount: 6,
-        lastMessage: "Several altcoins are showing strong momentum including...",
+        lastMessage: "Several altcoins are showing strong momentum according to Web3Mao's analysis...",
       },
     ]
     setSessions(mockSessions)
@@ -58,48 +59,47 @@ export default function ChatHistoryPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 p-8">
+    <div className="min-h-screen bg-background p-8">
       <div className="max-w-4xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-light text-white mb-2">Chat History</h1>
-            <p className="text-gray-400">Your previous conversations with Gud Tech AI</p>
+            <h1 className="text-3xl font-light text-foreground mb-2">Chat History</h1>
+            <p className="text-muted-foreground">Your previous conversations with Web3Mao AI</p>
           </div>
-          <Button className="bg-green-600 hover:bg-green-700">
+          <Button className="bg-blue-600 hover:bg-blue-700">
             <MessageCircle className="w-4 h-4 mr-2" />
             New Chat
           </Button>
         </div>
 
         {sessions.length === 0 ? (
-          <Card className="bg-gray-800 border-gray-700">
+          <Card className="bg-card border-border">
             <CardContent className="p-12 text-center">
-              <MessageCircle className="w-16 h-16 text-gray-600 mx-auto mb-4" />
-              <h3 className="text-xl text-white mb-2">No chat history yet</h3>
-              <p className="text-gray-400 mb-6">Start a conversation to see your chat history here</p>
-              <Button className="bg-green-600 hover:bg-green-700">Start Chatting</Button>
+              <MessageCircle className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
+              <h3 className="text-xl text-foreground mb-2">No chat history yet</h3>
+              <p className="text-muted-foreground mb-6">
+                Start a conversation with Web3Mao to see your chat history here
+              </p>
+              <Button className="bg-blue-600 hover:bg-blue-700">Start Chatting with Web3Mao</Button>
             </CardContent>
           </Card>
         ) : (
           <div className="space-y-4">
             {sessions.map((session) => (
-              <Card
-                key={session.id}
-                className="bg-gray-800 border-gray-700 hover:bg-gray-750 transition-colors cursor-pointer"
-              >
+              <Card key={session.id} className="bg-card border-border hover:bg-accent transition-colors cursor-pointer">
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between">
-                    <CardTitle className="text-lg text-white">{session.title}</CardTitle>
-                    <div className="flex items-center gap-2 text-sm text-gray-400">
+                    <CardTitle className="text-lg text-foreground">{session.title}</CardTitle>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <Clock className="w-4 h-4" />
                       {formatTimeAgo(session.timestamp)}
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent className="pt-0">
-                  <p className="text-gray-400 text-sm mb-3 line-clamp-2">{session.lastMessage}</p>
+                  <p className="text-muted-foreground text-sm mb-3 line-clamp-2">{session.lastMessage}</p>
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-4 text-xs text-gray-500">
+                    <div className="flex items-center gap-4 text-xs text-muted-foreground">
                       <span className="flex items-center gap-1">
                         <MessageCircle className="w-3 h-3" />
                         {session.messageCount} messages
@@ -108,7 +108,7 @@ export default function ChatHistoryPage() {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="bg-gray-700 border-gray-600 text-gray-300 hover:bg-gray-600"
+                      className="bg-muted border-border text-foreground hover:bg-accent"
                     >
                       Continue Chat
                     </Button>

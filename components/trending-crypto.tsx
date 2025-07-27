@@ -46,7 +46,7 @@ export function TrendingCrypto() {
       <Card className="bg-gray-800 border-gray-700">
         <CardHeader>
           <CardTitle className="text-white flex items-center gap-2">
-            <TrendingUp className="w-5 h-5 text-green-500" />
+            <TrendingUp className="w-5 h-5 text-blue-500" />
             Trending Crypto
           </CardTitle>
         </CardHeader>
@@ -72,7 +72,7 @@ export function TrendingCrypto() {
     <Card className="bg-gray-800 border-gray-700">
       <CardHeader>
         <CardTitle className="text-white flex items-center gap-2">
-          <TrendingUp className="w-5 h-5 text-green-500" />
+          <TrendingUp className="w-5 h-5 text-blue-500" />
           Trending Crypto
         </CardTitle>
       </CardHeader>

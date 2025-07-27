@@ -16,7 +16,7 @@ export default function StakePage() {
           <div className="lg:col-span-2">
             <Card className="bg-card border-border">
               <CardHeader>
-                <CardTitle className="text-2xl text-foreground">Stake $ZRC, Earn $MAO</CardTitle>
+                <CardTitle className="text-2xl text-foreground">Stake $MAO, Earn Rewards</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 {/* Action Buttons */}
@@ -35,7 +35,7 @@ export default function StakePage() {
                   <div className="text-muted-foreground">$0</div>
                   <div className="flex items-center justify-center gap-2 mt-4">
                     <div className="w-6 h-6 bg-muted rounded-full flex items-center justify-center">
-                      <span className="text-xs">ZRC</span>
+                      <span className="text-xs">MAO</span>
                     </div>
                     <span className="text-muted-foreground">Balance: 0</span>
                     <Badge variant="secondary" className="bg-muted text-muted-foreground">
@@ -65,7 +65,7 @@ export default function StakePage() {
                     <div className="text-xl font-semibold text-foreground">0</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-sm text-muted-foreground mb-1">MAO Earned</div>
+                    <div className="text-sm text-muted-foreground mb-1">Rewards Earned</div>
                     <div className="text-xl font-semibold text-foreground">0</div>
                   </div>
                 </div>
@@ -81,16 +81,18 @@ export default function StakePage() {
                   <img src="/images/web3mao-mascot.png" alt="Web3Mao" className="w-12 h-12 rounded-full" />
                   <div>
                     <div className="text-foreground font-medium">Total Staked:</div>
-                    <div className="text-muted-foreground">ZRC</div>
+                    <div className="text-muted-foreground">MAO</div>
                   </div>
                 </div>
 
                 <div className="bg-muted rounded-lg p-4 mb-4">
-                  <div className="text-sm text-muted-foreground mb-2">The MAO Fairdrop campaign has ended.</div>
-                  <div className="text-sm text-foreground">Keep earning rewards by staking on Liquidity Hub!</div>
+                  <div className="text-sm text-muted-foreground mb-2">The $MAO Fairdrop campaign has ended.</div>
+                  <div className="text-sm text-foreground">
+                    Keep earning rewards by staking on Web3Mao Liquidity Hub!
+                  </div>
                 </div>
 
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">Get $ZRC 🚀</Button>
+                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">Get $MAO 🚀</Button>
               </CardContent>
             </Card>
           </div>

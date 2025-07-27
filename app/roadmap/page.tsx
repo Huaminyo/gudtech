@@ -7,7 +7,7 @@ const roadmapItems = [
     id: "01",
     title: "AI-Powered Crypto Terminal",
     description:
-      "Crypto moves fast, don't waste time doomscrolling for insights. Web3Mao cuts through the noise, delivering real-time market intelligence.",
+      "Crypto moves fast, don't waste time doomscrolling for insights. Web3Mao cuts through the noise, delivering real-time market intelligence with advanced AI capabilities.",
     icon: "📊",
     status: "completed",
   },
@@ -15,7 +15,7 @@ const roadmapItems = [
     id: "02",
     title: "Mao, But Could Be Better",
     description:
-      "Additional AI capabilities and features such as smart wallets, comparison queries, advanced charts, larger and more diverse datasets.",
+      "Additional AI capabilities and features such as smart wallets, comparison queries, advanced charts, larger and more diverse datasets for comprehensive market analysis.",
     icon: "🔥",
     status: "in-progress",
   },
@@ -23,7 +23,7 @@ const roadmapItems = [
     id: "03",
     title: "Your Wish is My Command",
     description:
-      "Integrating with Zircuit liquidity hub and other DeFi platforms. Trade tokens and execute DeFi strategies like yield farming and staking with single command on Web3Mao terminal.",
+      "Integrating with DeFi platforms and liquidity hubs. Trade tokens and execute DeFi strategies like yield farming and staking with single command on Web3Mao terminal.",
     icon: "✨",
     status: "planned",
   },
@@ -69,7 +69,7 @@ export default function RoadmapPage() {
 
         {/* CTA Button */}
         <div className="text-center">
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">Get MAO Now or Never</Button>
+          <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">Get $MAO Now or Never</Button>
         </div>
       </div>
     </div>
