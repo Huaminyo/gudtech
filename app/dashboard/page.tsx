@@ -13,20 +13,20 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 p-4 lg:p-8">
+    <div className="min-h-screen bg-background p-4 lg:p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-6 lg:mb-8 gap-4">
           <div>
-            <h1 className="text-2xl lg:text-3xl font-light text-white mb-2">Crypto Market Dashboard</h1>
-            <p className="text-gray-400 text-sm lg:text-base">
+            <h1 className="text-2xl lg:text-3xl font-light text-foreground mb-2">Crypto Market Dashboard</h1>
+            <p className="text-muted-foreground text-sm lg:text-base">
               Real-time cryptocurrency market data powered by CoinGecko
             </p>
           </div>
           <Button
             onClick={handleRefresh}
             variant="outline"
-            className="bg-gray-800 border-gray-600 text-white hover:bg-gray-700 w-full lg:w-auto"
+            className="bg-card border-border text-foreground hover:bg-accent w-full lg:w-auto"
           >
             <RefreshCw className="w-4 h-4 mr-2" />
             Refresh
@@ -35,7 +35,7 @@ export default function DashboardPage() {
 
         {/* Price Ticker */}
         <div className="mb-6 lg:mb-8">
-          <h2 className="text-lg lg:text-xl font-semibold text-white mb-4 flex items-center gap-2">
+          <h2 className="text-lg lg:text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
             <BarChart3 className="w-5 h-5 text-green-500" />
             Top Cryptocurrencies
           </h2>
@@ -49,28 +49,32 @@ export default function DashboardPage() {
         </div>
 
         {/* Market Insights */}
-        <Card className="bg-gray-800 border-gray-700">
+        <Card className="bg-card border-border">
           <CardHeader>
-            <CardTitle className="text-white text-lg lg:text-xl">Market Insights</CardTitle>
+            <CardTitle className="text-foreground text-lg lg:text-xl">Market Insights</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
               <div className="text-center">
                 <div className="text-2xl font-bold text-green-500 mb-2">🚀</div>
-                <h3 className="text-white font-semibold mb-1 text-sm lg:text-base">AI-Powered Analysis</h3>
-                <p className="text-gray-400 text-xs lg:text-sm">
+                <h3 className="text-foreground font-semibold mb-1 text-sm lg:text-base">AI-Powered Analysis</h3>
+                <p className="text-muted-foreground text-xs lg:text-sm">
                   Get real-time market insights with our AI chat assistant
                 </p>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-blue-500 mb-2">📊</div>
-                <h3 className="text-white font-semibold mb-1 text-sm lg:text-base">Live Data</h3>
-                <p className="text-gray-400 text-xs lg:text-sm">Real-time prices and market data from CoinGecko API</p>
+                <h3 className="text-foreground font-semibold mb-1 text-sm lg:text-base">Live Data</h3>
+                <p className="text-muted-foreground text-xs lg:text-sm">
+                  Real-time prices and market data from CoinGecko API
+                </p>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-purple-500 mb-2">⚡</div>
-                <h3 className="text-white font-semibold mb-1 text-sm lg:text-base">Fast Updates</h3>
-                <p className="text-gray-400 text-xs lg:text-sm">Market data updates every 30 seconds automatically</p>
+                <h3 className="text-foreground font-semibold mb-1 text-sm lg:text-base">Fast Updates</h3>
+                <p className="text-muted-foreground text-xs lg:text-sm">
+                  Market data updates every 30 seconds automatically
+                </p>
               </div>
             </div>
           </CardContent>

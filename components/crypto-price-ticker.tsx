@@ -86,11 +86,11 @@ export function CryptoPriceTicker() {
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
         {[...Array(10)].map((_, i) => (
-          <Card key={i} className="bg-gray-800 border-gray-700 animate-pulse">
+          <Card key={i} className="bg-card border-border animate-pulse">
             <CardContent className="p-3 lg:p-4">
-              <div className="h-4 bg-gray-700 rounded mb-2"></div>
-              <div className="h-6 bg-gray-700 rounded mb-1"></div>
-              <div className="h-4 bg-gray-700 rounded"></div>
+              <div className="h-4 bg-muted rounded mb-2"></div>
+              <div className="h-6 bg-muted rounded mb-1"></div>
+              <div className="h-4 bg-muted rounded"></div>
             </CardContent>
           </Card>
         ))}
@@ -101,15 +101,15 @@ export function CryptoPriceTicker() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
       {prices.map((crypto) => (
-        <Card key={crypto.id} className="bg-gray-800 border-gray-700 hover:bg-gray-750 transition-colors">
+        <Card key={crypto.id} className="bg-card border-border hover:bg-accent transition-colors">
           <CardContent className="p-3 lg:p-4">
             <div className="flex items-center justify-between mb-2">
               <div>
-                <h3 className="font-semibold text-white text-sm">{crypto.symbol}</h3>
-                <p className="text-xs text-gray-400">{crypto.name}</p>
+                <h3 className="font-semibold text-foreground text-sm">{crypto.symbol}</h3>
+                <p className="text-xs text-muted-foreground">{crypto.name}</p>
               </div>
               <div className="text-right">
-                <p className="font-semibold text-white text-xs lg:text-sm">{formatPrice(crypto.current_price)}</p>
+                <p className="font-semibold text-foreground text-xs lg:text-sm">{formatPrice(crypto.current_price)}</p>
                 <div
                   className={`flex items-center justify-end text-xs ${
                     crypto.price_change_percentage_24h >= 0 ? "text-green-500" : "text-red-500"
@@ -124,7 +124,7 @@ export function CryptoPriceTicker() {
                 </div>
               </div>
             </div>
-            <div className="text-xs text-gray-500">
+            <div className="text-xs text-muted-foreground">
               <p>MCap: {formatMarketCap(crypto.market_cap)}</p>
             </div>
           </CardContent>

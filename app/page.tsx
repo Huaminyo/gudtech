@@ -4,7 +4,7 @@ import type React from "react"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Send, Lock, User, Bot, TrendingUp } from "lucide-react"
+import { Send, Lock, User, TrendingUp } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
@@ -45,7 +45,7 @@ export default function ChatPage() {
 
   useEffect(() => {
     // Load portfolio from localStorage
-    const savedPortfolio = localStorage.getItem("gud-tech-portfolio")
+    const savedPortfolio = localStorage.getItem("web3mao-portfolio")
     if (savedPortfolio) {
       setPortfolio(JSON.parse(savedPortfolio))
     }
@@ -141,61 +141,61 @@ export default function ChatPage() {
   }
 
   return (
-    <div className="flex flex-col h-screen bg-gray-900">
+    <div className="flex flex-col h-screen bg-background">
       {/* Header - Hidden on mobile (handled by MobileHeader) */}
-      <div className="hidden lg:flex items-center justify-between p-4 border-b border-gray-700">
+      <div className="hidden lg:flex items-center justify-between p-4 border-b border-border">
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
-            <span className="text-gray-400">default</span>
-            <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span className="text-muted-foreground">default</span>
+            <svg className="w-4 h-4 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
           </div>
           {quickStats && (
             <div className="flex items-center gap-4 text-sm">
-              <Badge variant="outline" className="bg-gray-800 border-gray-600 text-green-400">
+              <Badge variant="outline" className="bg-card border-border text-green-500">
                 BTC: ${quickStats.btc_price.toLocaleString()}
               </Badge>
-              <Badge variant="outline" className="bg-gray-800 border-gray-600 text-blue-400">
+              <Badge variant="outline" className="bg-card border-border text-blue-500">
                 ETH: ${quickStats.eth_price.toLocaleString()}
               </Badge>
               <Badge
                 variant="outline"
-                className={`bg-gray-800 border-gray-600 ${quickStats.market_cap_change >= 0 ? "text-green-400" : "text-red-400"}`}
+                className={`bg-card border-border ${quickStats.market_cap_change >= 0 ? "text-green-500" : "text-red-500"}`}
               >
                 <TrendingUp className="w-3 h-3 mr-1" />
                 {quickStats.market_cap_change.toFixed(2)}%
               </Badge>
               {portfolio.length > 0 && (
-                <Badge variant="outline" className="bg-gray-800 border-gray-600 text-purple-400">
+                <Badge variant="outline" className="bg-card border-border text-purple-500">
                   Portfolio: {portfolio.length} assets
                 </Badge>
               )}
             </div>
           )}
         </div>
-        <Button className="bg-green-600 hover:bg-green-700">Connect Wallet</Button>
+        <Button className="bg-blue-600 hover:bg-blue-700">Connect Wallet</Button>
       </div>
 
       {/* Mobile Stats Bar */}
-      <div className="lg:hidden p-3 border-b border-gray-700 bg-gray-800">
+      <div className="lg:hidden p-3 border-b border-border bg-card">
         {quickStats && (
           <div className="flex items-center gap-2 text-xs overflow-x-auto">
-            <Badge variant="outline" className="bg-gray-700 border-gray-600 text-green-400 whitespace-nowrap">
+            <Badge variant="outline" className="bg-muted border-border text-green-500 whitespace-nowrap">
               BTC: ${quickStats.btc_price.toLocaleString()}
             </Badge>
-            <Badge variant="outline" className="bg-gray-700 border-gray-600 text-blue-400 whitespace-nowrap">
+            <Badge variant="outline" className="bg-muted border-border text-blue-500 whitespace-nowrap">
               ETH: ${quickStats.eth_price.toLocaleString()}
             </Badge>
             <Badge
               variant="outline"
-              className={`bg-gray-700 border-gray-600 whitespace-nowrap ${quickStats.market_cap_change >= 0 ? "text-green-400" : "text-red-400"}`}
+              className={`bg-muted border-border whitespace-nowrap ${quickStats.market_cap_change >= 0 ? "text-green-500" : "text-red-500"}`}
             >
               <TrendingUp className="w-3 h-3 mr-1" />
               {quickStats.market_cap_change.toFixed(2)}%
             </Badge>
             {portfolio.length > 0 && (
-              <Badge variant="outline" className="bg-gray-700 border-gray-600 text-purple-400 whitespace-nowrap">
+              <Badge variant="outline" className="bg-muted border-border text-purple-500 whitespace-nowrap">
                 Portfolio: {portfolio.length}
               </Badge>
             )}
@@ -210,22 +210,24 @@ export default function ChatPage() {
           <div className="flex flex-col items-center justify-center h-full p-4 lg:p-8">
             {/* Mascot */}
             <div className="mb-6 lg:mb-8">
-              <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gray-700 rounded-full flex items-center justify-center mb-4">
-                <div className="w-8 h-8 lg:w-12 lg:h-12 bg-white rounded-full flex items-center justify-center">
-                  <span className="text-lg lg:text-2xl">🐱</span>
-                </div>
-                <div className="w-4 h-4 lg:w-6 lg:h-6 bg-green-500 rounded-full absolute translate-x-4 lg:translate-x-6 -translate-y-1 lg:-translate-y-2 flex items-center justify-center">
+              <div className="relative mb-4">
+                <img
+                  src="/images/web3mao-mascot.png"
+                  alt="Web3Mao"
+                  className="w-16 h-16 lg:w-24 lg:h-24 rounded-full"
+                />
+                <div className="w-4 h-4 lg:w-6 lg:h-6 bg-green-500 rounded-full absolute -bottom-1 -right-1 lg:bottom-0 lg:right-0 flex items-center justify-center">
                   <span className="text-xs">✓</span>
                 </div>
               </div>
             </div>
 
             {/* Main Question */}
-            <h1 className="text-xl lg:text-3xl font-light text-center mb-3 lg:mb-4 max-w-2xl px-4">
+            <h1 className="text-xl lg:text-3xl font-light text-center mb-3 lg:mb-4 max-w-2xl px-4 text-foreground">
               {"What's happening in the crypto market today?"}
             </h1>
-            <p className="text-gray-400 text-center mb-6 lg:mb-8 max-w-xl text-sm lg:text-base px-4">
-              Get real-time crypto insights and portfolio analysis powered by live market data
+            <p className="text-muted-foreground text-center mb-6 lg:mb-8 max-w-xl text-sm lg:text-base px-4">
+              Get real-time crypto insights and portfolio analysis powered by Web3Mao AI
             </p>
 
             {/* Trending Topics */}
@@ -235,7 +237,7 @@ export default function ChatPage() {
                   key={topic}
                   variant="outline"
                   size="sm"
-                  className="bg-gray-800 border-gray-600 text-gray-300 hover:bg-gray-700 rounded-full text-xs lg:text-sm"
+                  className="bg-card border-border text-muted-foreground hover:bg-accent hover:text-accent-foreground rounded-full text-xs lg:text-sm"
                   onClick={() => handleTopicClick(topic)}
                 >
                   {topic}
@@ -259,16 +261,22 @@ export default function ChatPage() {
                 >
                   <div className="w-6 h-6 lg:w-8 lg:h-8 rounded-full flex items-center justify-center flex-shrink-0">
                     {msg.role === "user" ? (
-                      <User className="w-4 h-4 lg:w-6 lg:h-6 text-gray-400" />
+                      <User className="w-4 h-4 lg:w-6 lg:h-6 text-muted-foreground" />
                     ) : (
-                      <div className="w-6 h-6 lg:w-8 lg:h-8 bg-green-600 rounded-full flex items-center justify-center">
-                        <Bot className="w-3 h-3 lg:w-5 lg:h-5 text-white" />
-                      </div>
+                      <img
+                        src="/images/web3mao-mascot.png"
+                        alt="Web3Mao"
+                        className="w-6 h-6 lg:w-8 lg:h-8 rounded-full"
+                      />
                     )}
                   </div>
-                  <Card className={`${msg.role === "user" ? "bg-green-600" : "bg-gray-800"} border-none`}>
+                  <Card className={`${msg.role === "user" ? "bg-blue-600" : "bg-card"} border-none`}>
                     <CardContent className="p-2 lg:p-3">
-                      <p className="text-white text-xs lg:text-sm whitespace-pre-wrap">{msg.content}</p>
+                      <p
+                        className={`text-xs lg:text-sm whitespace-pre-wrap ${msg.role === "user" ? "text-white" : "text-foreground"}`}
+                      >
+                        {msg.content}
+                      </p>
                     </CardContent>
                   </Card>
                 </div>
@@ -276,19 +284,17 @@ export default function ChatPage() {
             ))}
             {isLoading && (
               <div className="flex gap-2 lg:gap-3 justify-start">
-                <div className="w-6 h-6 lg:w-8 lg:h-8 bg-green-600 rounded-full flex items-center justify-center">
-                  <Bot className="w-3 h-3 lg:w-5 lg:h-5 text-white" />
-                </div>
-                <Card className="bg-gray-800 border-none">
+                <img src="/images/web3mao-mascot.png" alt="Web3Mao" className="w-6 h-6 lg:w-8 lg:h-8 rounded-full" />
+                <Card className="bg-card border-none">
                   <CardContent className="p-2 lg:p-3">
                     <div className="flex gap-1">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                      <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce"></div>
                       <div
-                        className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
+                        className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce"
                         style={{ animationDelay: "0.1s" }}
                       ></div>
                       <div
-                        className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
+                        className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce"
                         style={{ animationDelay: "0.2s" }}
                       ></div>
                     </div>
@@ -301,7 +307,7 @@ export default function ChatPage() {
       </div>
 
       {/* Input Area */}
-      <div className="p-3 lg:p-4 border-t border-gray-700">
+      <div className="p-3 lg:p-4 border-t border-border">
         <form onSubmit={handleSubmit} className="max-w-4xl mx-auto">
           <div className="relative">
             <Input
@@ -309,23 +315,23 @@ export default function ChatPage() {
               onChange={(e) => setMessage(e.target.value)}
               placeholder={
                 isLoading
-                  ? "AI is analyzing market data..."
+                  ? "Web3Mao is analyzing market data..."
                   : portfolio.length > 0
-                    ? "Ask me about crypto trends, prices, or your portfolio..."
-                    : "Ask me about crypto trends, prices, or market analysis..."
+                    ? "Ask Web3Mao about crypto trends, prices, or your portfolio..."
+                    : "Ask Web3Mao about crypto trends, prices, or market analysis..."
               }
-              className="w-full bg-gray-800 border-gray-600 text-white placeholder-gray-400 pr-12 py-4 lg:py-6 text-sm lg:text-lg rounded-2xl"
+              className="w-full bg-card border-border text-foreground placeholder-muted-foreground pr-12 py-4 lg:py-6 text-sm lg:text-lg rounded-2xl"
               disabled={isLoading}
             />
             <Button
               type="submit"
               size="sm"
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-green-600 hover:bg-green-700 rounded-xl"
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-600 hover:bg-blue-700 rounded-xl"
               disabled={isLoading || !message.trim()}
             >
               <Send className="w-3 h-3 lg:w-4 lg:h-4" />
             </Button>
-            <Lock className="absolute right-12 lg:right-16 top-1/2 -translate-y-1/2 w-4 h-4 lg:w-5 lg:h-5 text-gray-400" />
+            <Lock className="absolute right-12 lg:right-16 top-1/2 -translate-y-1/2 w-4 h-4 lg:w-5 lg:h-5 text-muted-foreground" />
           </div>
         </form>
       </div>

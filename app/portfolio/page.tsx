@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Plus, TrendingUp, TrendingDown, PieChart, BarChart3 } from "lucide-react"
+import { Plus, TrendingUp, TrendingDown, BarChart3 } from "lucide-react"
 import { AddCryptoModal } from "@/components/add-crypto-modal"
 import { PortfolioStats } from "@/components/portfolio-stats"
 import { PortfolioChart } from "@/components/portfolio-chart"
@@ -35,7 +35,7 @@ export default function PortfolioPage() {
 
   // Load portfolio from localStorage
   useEffect(() => {
-    const savedPortfolio = localStorage.getItem("gud-tech-portfolio")
+    const savedPortfolio = localStorage.getItem("web3mao-portfolio")
     if (savedPortfolio) {
       setPortfolio(JSON.parse(savedPortfolio))
     }
@@ -45,7 +45,7 @@ export default function PortfolioPage() {
   // Save portfolio to localStorage
   useEffect(() => {
     if (!loading) {
-      localStorage.setItem("gud-tech-portfolio", JSON.stringify(portfolio))
+      localStorage.setItem("web3mao-portfolio", JSON.stringify(portfolio))
     }
   }, [portfolio, loading])
 
@@ -131,14 +131,14 @@ export default function PortfolioPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-900 p-4 lg:p-8">
+      <div className="min-h-screen bg-background p-4 lg:p-8">
         <div className="max-w-7xl mx-auto">
           <div className="animate-pulse">
-            <div className="h-8 bg-gray-700 rounded w-64 mb-4"></div>
-            <div className="h-4 bg-gray-700 rounded w-96 mb-8"></div>
+            <div className="h-8 bg-muted rounded w-64 mb-4"></div>
+            <div className="h-4 bg-muted rounded w-96 mb-8"></div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
               {[...Array(4)].map((_, i) => (
-                <div key={i} className="h-32 bg-gray-800 rounded-lg"></div>
+                <div key={i} className="h-32 bg-card rounded-lg"></div>
               ))}
             </div>
           </div>
@@ -148,15 +148,17 @@ export default function PortfolioPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 p-4 lg:p-8">
+    <div className="min-h-screen bg-background p-4 lg:p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-6 lg:mb-8 gap-4">
           <div>
-            <h1 className="text-2xl lg:text-3xl font-light text-white mb-2">Portfolio Tracker</h1>
-            <p className="text-gray-400 text-sm lg:text-base">Track your cryptocurrency investments and performance</p>
+            <h1 className="text-2xl lg:text-3xl font-light text-foreground mb-2">Portfolio Tracker</h1>
+            <p className="text-muted-foreground text-sm lg:text-base">
+              Track your cryptocurrency investments with Web3Mao
+            </p>
           </div>
-          <Button onClick={() => setIsAddModalOpen(true)} className="bg-green-600 hover:bg-green-700 w-full lg:w-auto">
+          <Button onClick={() => setIsAddModalOpen(true)} className="bg-blue-600 hover:bg-blue-700 w-full lg:w-auto">
             <Plus className="w-4 h-4 mr-2" />
             Add Crypto
           </Button>
@@ -164,16 +166,20 @@ export default function PortfolioPage() {
 
         {portfolio.length === 0 ? (
           /* Empty State */
-          <Card className="bg-gray-800 border-gray-700">
+          <Card className="bg-card border-border">
             <CardContent className="p-8 lg:p-12 text-center">
-              <PieChart className="w-12 h-12 lg:w-16 lg:h-16 text-gray-600 mx-auto mb-4" />
-              <h3 className="text-lg lg:text-xl text-white mb-2">Start Building Your Portfolio</h3>
-              <p className="text-gray-400 mb-6 text-sm lg:text-base">
-                Add your first cryptocurrency to start tracking your investments
+              <img
+                src="/images/web3mao-mascot.png"
+                alt="Web3Mao"
+                className="w-12 h-12 lg:w-16 lg:h-16 mx-auto mb-4 rounded-full"
+              />
+              <h3 className="text-lg lg:text-xl text-foreground mb-2">Start Building Your Portfolio</h3>
+              <p className="text-muted-foreground mb-6 text-sm lg:text-base">
+                Add your first cryptocurrency to start tracking your investments with Web3Mao
               </p>
               <Button
                 onClick={() => setIsAddModalOpen(true)}
-                className="bg-green-600 hover:bg-green-700 w-full lg:w-auto"
+                className="bg-blue-600 hover:bg-blue-700 w-full lg:w-auto"
               >
                 <Plus className="w-4 h-4 mr-2" />
                 Add Your First Crypto
@@ -191,10 +197,10 @@ export default function PortfolioPage() {
             </div>
 
             {/* Holdings Table */}
-            <Card className="bg-gray-800 border-gray-700">
+            <Card className="bg-card border-border">
               <CardHeader>
-                <CardTitle className="text-white flex items-center gap-2 text-lg lg:text-xl">
-                  <BarChart3 className="w-5 h-5 text-green-500" />
+                <CardTitle className="text-foreground flex items-center gap-2 text-lg lg:text-xl">
+                  <BarChart3 className="w-5 h-5 text-blue-500" />
                   Your Holdings
                 </CardTitle>
               </CardHeader>
@@ -210,22 +216,22 @@ export default function PortfolioPage() {
                     const priceChange = prices[item.coinId]?.usd_24h_change || 0
 
                     return (
-                      <Card key={item.id} className="bg-gray-700 border-gray-600">
+                      <Card key={item.id} className="bg-muted border-border">
                         <CardContent className="p-4">
                           <div className="flex items-center justify-between mb-3">
                             <div className="flex items-center gap-3">
-                              <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center">
-                                <span className="text-xs font-bold text-white">
+                              <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
+                                <span className="text-xs font-bold text-foreground">
                                   {item.symbol.slice(0, 2).toUpperCase()}
                                 </span>
                               </div>
                               <div>
-                                <p className="text-white font-medium">{item.symbol.toUpperCase()}</p>
-                                <p className="text-gray-400 text-sm">{item.name}</p>
+                                <p className="text-foreground font-medium">{item.symbol.toUpperCase()}</p>
+                                <p className="text-muted-foreground text-sm">{item.name}</p>
                               </div>
                             </div>
                             <div className="text-right">
-                              <p className="text-white font-medium">{formatCurrency(currentValue)}</p>
+                              <p className="text-foreground font-medium">{formatCurrency(currentValue)}</p>
                               <div
                                 className={`flex items-center justify-end text-xs ${
                                   pnl >= 0 ? "text-green-500" : "text-red-500"
@@ -243,19 +249,19 @@ export default function PortfolioPage() {
                           </div>
                           <div className="grid grid-cols-2 gap-4 text-sm">
                             <div>
-                              <p className="text-gray-400">Holdings</p>
-                              <p className="text-white">{formatNumber(item.quantity, 6)}</p>
+                              <p className="text-muted-foreground">Holdings</p>
+                              <p className="text-foreground">{formatNumber(item.quantity, 6)}</p>
                             </div>
                             <div>
-                              <p className="text-gray-400">Avg Price</p>
-                              <p className="text-white">{formatCurrency(item.averagePrice)}</p>
+                              <p className="text-muted-foreground">Avg Price</p>
+                              <p className="text-foreground">{formatCurrency(item.averagePrice)}</p>
                             </div>
                             <div>
-                              <p className="text-gray-400">Current Price</p>
-                              <p className="text-white">{formatCurrency(currentPrice)}</p>
+                              <p className="text-muted-foreground">Current Price</p>
+                              <p className="text-foreground">{formatCurrency(currentPrice)}</p>
                             </div>
                             <div>
-                              <p className="text-gray-400">P&L</p>
+                              <p className="text-muted-foreground">P&L</p>
                               <p className={`font-medium ${pnl >= 0 ? "text-green-500" : "text-red-500"}`}>
                                 {formatCurrency(pnl)}
                               </p>
@@ -279,14 +285,14 @@ export default function PortfolioPage() {
                 <div className="hidden lg:block overflow-x-auto">
                   <table className="w-full">
                     <thead>
-                      <tr className="border-b border-gray-700">
-                        <th className="text-left text-gray-400 font-medium py-3">Asset</th>
-                        <th className="text-right text-gray-400 font-medium py-3">Holdings</th>
-                        <th className="text-right text-gray-400 font-medium py-3">Avg Price</th>
-                        <th className="text-right text-gray-400 font-medium py-3">Current Price</th>
-                        <th className="text-right text-gray-400 font-medium py-3">Value</th>
-                        <th className="text-right text-gray-400 font-medium py-3">P&L</th>
-                        <th className="text-right text-gray-400 font-medium py-3">Actions</th>
+                      <tr className="border-b border-border">
+                        <th className="text-left text-muted-foreground font-medium py-3">Asset</th>
+                        <th className="text-right text-muted-foreground font-medium py-3">Holdings</th>
+                        <th className="text-right text-muted-foreground font-medium py-3">Avg Price</th>
+                        <th className="text-right text-muted-foreground font-medium py-3">Current Price</th>
+                        <th className="text-right text-muted-foreground font-medium py-3">Value</th>
+                        <th className="text-right text-muted-foreground font-medium py-3">P&L</th>
+                        <th className="text-right text-muted-foreground font-medium py-3">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -299,29 +305,29 @@ export default function PortfolioPage() {
                         const priceChange = prices[item.coinId]?.usd_24h_change || 0
 
                         return (
-                          <tr key={item.id} className="border-b border-gray-700/50">
+                          <tr key={item.id} className="border-b border-border/50">
                             <td className="py-4">
                               <div className="flex items-center gap-3">
-                                <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center">
-                                  <span className="text-xs font-bold text-white">
+                                <div className="w-8 h-8 bg-muted rounded-full flex items-center justify-center">
+                                  <span className="text-xs font-bold text-foreground">
                                     {item.symbol.slice(0, 2).toUpperCase()}
                                   </span>
                                 </div>
                                 <div>
-                                  <p className="text-white font-medium">{item.symbol.toUpperCase()}</p>
-                                  <p className="text-gray-400 text-sm">{item.name}</p>
+                                  <p className="text-foreground font-medium">{item.symbol.toUpperCase()}</p>
+                                  <p className="text-muted-foreground text-sm">{item.name}</p>
                                 </div>
                               </div>
                             </td>
                             <td className="text-right py-4">
-                              <p className="text-white">{formatNumber(item.quantity, 6)}</p>
+                              <p className="text-foreground">{formatNumber(item.quantity, 6)}</p>
                             </td>
                             <td className="text-right py-4">
-                              <p className="text-white">{formatCurrency(item.averagePrice)}</p>
+                              <p className="text-foreground">{formatCurrency(item.averagePrice)}</p>
                             </td>
                             <td className="text-right py-4">
                               <div>
-                                <p className="text-white">{formatCurrency(currentPrice)}</p>
+                                <p className="text-foreground">{formatCurrency(currentPrice)}</p>
                                 <div
                                   className={`flex items-center justify-end text-xs ${
                                     priceChange >= 0 ? "text-green-500" : "text-red-500"
@@ -337,7 +343,7 @@ export default function PortfolioPage() {
                               </div>
                             </td>
                             <td className="text-right py-4">
-                              <p className="text-white font-medium">{formatCurrency(currentValue)}</p>
+                              <p className="text-foreground font-medium">{formatCurrency(currentValue)}</p>
                             </td>
                             <td className="text-right py-4">
                               <div>
