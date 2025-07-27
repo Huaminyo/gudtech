@@ -7,6 +7,8 @@ import { Input } from "@/components/ui/input"
 import { Send, Lock, User, TrendingUp } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { useAccount } from "wagmi"
+import { WalletButton } from "@/components/wallet-button"
 
 const trendingTopics = [
   "bitcoin price",
@@ -42,6 +44,7 @@ export default function ChatPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [quickStats, setQuickStats] = useState<QuickStats | null>(null)
   const [portfolio, setPortfolio] = useState<any[]>([])
+  const { address, isConnected } = useAccount()
 
   useEffect(() => {
     // Load portfolio from localStorage
@@ -105,6 +108,7 @@ export default function ChatPage() {
           message: message,
           history: messages,
           portfolio: portfolio, // Send portfolio data to AI
+          wallet: isConnected ? { address, connected: true } : { connected: false },
         }),
       })
 
@@ -171,10 +175,15 @@ export default function ChatPage() {
                   Portfolio: {portfolio.length} assets
                 </Badge>
               )}
+              {isConnected && (
+                <Badge variant="outline" className="bg-card border-border text-green-500">
+                  Wallet Connected
+                </Badge>
+              )}
             </div>
           )}
         </div>
-        <Button className="bg-blue-600 hover:bg-blue-700">Connect Wallet</Button>
+        <WalletButton />
       </div>
 
       {/* Mobile Stats Bar */}
@@ -199,6 +208,11 @@ export default function ChatPage() {
                 Portfolio: {portfolio.length}
               </Badge>
             )}
+            {isConnected && (
+              <Badge variant="outline" className="bg-muted border-border text-green-500 whitespace-nowrap">
+                Connected
+              </Badge>
+            )}
           </div>
         )}
       </div>
@@ -214,6 +228,7 @@ export default function ChatPage() {
             </h1>
             <p className="text-muted-foreground text-center mb-6 lg:mb-8 max-w-xl text-sm lg:text-base px-4">
               Get real-time crypto insights and portfolio analysis powered by Web3Mao AI
+              {isConnected && " - Now with wallet integration!"}
             </p>
 
             {/* Trending Topics */}
@@ -302,9 +317,11 @@ export default function ChatPage() {
               placeholder={
                 isLoading
                   ? "Web3Mao is analyzing market data..."
-                  : portfolio.length > 0
-                    ? "Ask Web3Mao about crypto trends, prices, or your portfolio..."
-                    : "Ask Web3Mao about crypto trends, prices, or market analysis..."
+                  : isConnected
+                    ? "Ask Web3Mao about crypto trends, your wallet, or portfolio..."
+                    : portfolio.length > 0
+                      ? "Ask Web3Mao about crypto trends, prices, or your portfolio..."
+                      : "Ask Web3Mao about crypto trends, prices, or market analysis..."
               }
               className="w-full bg-card border-border text-foreground placeholder-muted-foreground pr-12 py-4 lg:py-6 text-sm lg:text-lg rounded-2xl"
               disabled={isLoading}

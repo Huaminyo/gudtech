@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Menu } from "lucide-react"
 import { SimpleThemeToggle } from "@/components/simple-theme-toggle"
+import { WalletButton } from "@/components/wallet-button"
 
 interface MobileHeaderProps {
   onMenuClick: () => void
@@ -22,9 +23,7 @@ export function MobileHeader({ onMenuClick }: MobileHeaderProps) {
       </div>
       <div className="flex items-center gap-2">
         <SimpleThemeToggle />
-        <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-xs px-3">
-          Connect
-        </Button>
+        <WalletButton />
       </div>
     </div>
   )

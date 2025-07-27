@@ -38,7 +38,7 @@ async function getCryptoData() {
 
 export async function POST(request: NextRequest) {
   try {
-    const { message, history, portfolio } = await request.json()
+    const { message, history, portfolio, wallet } = await request.json()
 
     // Get real-time crypto data
     const cryptoData = await getCryptoData()
@@ -73,6 +73,18 @@ GLOBAL MARKET:
 - Market Cap Change 24h: ${cryptoData.global.market_cap_change_percentage_24h_usd?.toFixed(2)}%`
     }
 
+    // Add wallet context if connected
+    if (wallet && wallet.connected) {
+      systemPrompt += `
+
+USER'S WALLET:
+- Status: Connected
+- Address: ${wallet.address}
+- Network: Ethereum Mainnet
+
+The user has connected their Web3 wallet. You can provide wallet-specific advice, DeFi recommendations, and help with blockchain interactions.`
+    }
+
     // Add portfolio context if provided
     if (portfolio && portfolio.length > 0) {
       systemPrompt += `
@@ -95,7 +107,7 @@ When discussing portfolio, provide specific insights about their holdings, perfo
 
     systemPrompt += `
 
-Use this real-time data to provide accurate and current market insights. If asked about portfolio, provide specific analysis of their holdings.`
+Use this real-time data to provide accurate and current market insights. If asked about portfolio, provide specific analysis of their holdings. If the user has a connected wallet, you can suggest DeFi strategies and Web3 interactions.`
 
     // Prepare messages for the API
     const messages: Message[] = [
