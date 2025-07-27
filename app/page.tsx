@@ -305,7 +305,7 @@ export default function ChatPage() {
             <Button
               type="submit"
               size="sm"
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-600 hover:bg-blue-700 rounded-xl"
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 text-black rounded-xl"
               disabled={isLoading || !message.trim()}
             >
               <Send className="w-3 h-3 lg:w-4 lg:h-4" />

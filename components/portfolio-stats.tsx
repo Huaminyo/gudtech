@@ -22,7 +22,7 @@ export function PortfolioStats({ data }: PortfolioStatsProps) {
       <Card className="bg-gray-800 border-gray-700">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium text-gray-400">Total Value</CardTitle>
-          <DollarSign className="h-4 w-4 text-green-500" />
+          <DollarSign className="h-4 w-4 text-white" />
         </CardHeader>
         <CardContent>
           <div className="text-xl lg:text-2xl font-bold text-white">{formatCurrency(data.totalValue)}</div>
@@ -45,14 +45,14 @@ export function PortfolioStats({ data }: PortfolioStatsProps) {
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium text-gray-400">Total P&L</CardTitle>
           {data.totalPnL >= 0 ? (
-            <TrendingUp className="h-4 w-4 text-foreground" />
+            <TrendingUp className="h-4 w-4 text-white" />
           ) : (
-            <TrendingDown className="h-4 w-4 text-foreground" />
+            <TrendingDown className="h-4 w-4 text-white" />
           )}
         </CardHeader>
         <CardContent>
           <div className="text-xl lg:text-2xl font-bold text-white">{formatCurrency(data.totalPnL)}</div>
-          <p className="text-xs text-foreground">
+          <p className="text-xs text-white">
             {data.totalPnLPercentage >= 0 ? "+" : ""}
             {data.totalPnLPercentage.toFixed(2)}%
           </p>
@@ -63,7 +63,7 @@ export function PortfolioStats({ data }: PortfolioStatsProps) {
       <Card className="bg-gray-800 border-gray-700">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium text-gray-400">Holdings</CardTitle>
-          <PieChart className="h-4 w-4 text-foreground" />
+          <PieChart className="h-4 w-4 text-white" />
         </CardHeader>
         <CardContent>
           <div className="text-xl lg:text-2xl font-bold text-white">{data.items.length}</div>
